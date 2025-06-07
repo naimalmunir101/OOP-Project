@@ -62,14 +62,17 @@ Person ← Customer, Admin → Admin and Customer share common personal info (na
 Person → Address → Each person has an address (tight composition).
 
 ## Key Classes in the System
-**People & Roles**
+**-People & Roles**
 
 Person: Basic info like name, CNIC, phone number, and address.
+
 Address: Tied to each person.
+
 Customer: Inherits from Person, can own vehicles.
+
 Admin: Also inherits from Person; only one instance allowed.
 
-**Vehicles**
+**-Vehicles**
 
 Vehicle: The main vehicle class — includes model, engine, doors, faults, etc.
 
@@ -81,13 +84,13 @@ SportsCar,
 HatchBack, 
 Bus
 
-**Garage & Repair Records**
+**-Garage & Repair Records**
 
 Garage: Tracks vehicle count and repair status.
 
 Record: Keeps a log of repairs done on each vehicle.
 
-**Faults**
+**-Faults**
 
 Fault: Stores and shows problems found in vehicles. Fully integrated into the Vehicle class.
 
