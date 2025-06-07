@@ -74,11 +74,11 @@ Admin: Also inherits from Person; only one instance allowed.
 Vehicle: The main vehicle class — includes model, engine, doors, faults, etc.
 
 Specialized vehicle types (inherit from Vehicle):
-Truck
-SUV
-Sedan
-SportsCar
-HatchBack
+Truck, 
+SUV, 
+Sedan, 
+SportsCar, 
+HatchBack, 
 Bus
 
 **Garage & Repair Records**
