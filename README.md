@@ -5,6 +5,7 @@ This system helps manage everything that goes on inside an auto repair workshop.
 
 # What It Does?
 **-User Roles**
+
 Admin is the main controller of the system.
 Can add new customers, register their vehicles, track garage status, and view repair records.
 Uses a Singleton pattern — meaning only one Admin can exist in the system at any time.
