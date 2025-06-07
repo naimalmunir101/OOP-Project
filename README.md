@@ -1,113 +1,164 @@
-# OOP-Project
+# Auto Workshop Management System (C++ Project)
 
-# Auto Workshop Management System
-This system helps manage everything that goes on inside an auto repair workshop. From handling customers and their vehicles to keeping track of repairs and garage activity — it covers it all. It's built using C++, serving as the backend for a smart automobile maintenance platform.
+This is a C++ project I built for managing an Auto Repair Workshop — basically, it handles everything from registering customers and their cars to tracking repairs and garage status. Think of it like a backend system that powers a smart car repair shop.
 
-## What It Does?
-**-User Roles**
+---
 
-Admin is the main controller of the system.
-Can add new customers, register their vehicles, track garage status, and view repair records.
-Uses a Singleton pattern — meaning only one Admin can exist in the system at any time.
+## What’s This Project About?
 
-**-Customers & Their Vehicles**
+So here’s the deal — workshops can get pretty messy with all the paperwork, customers, vehicles, repairs, and whatnot. This system is my attempt to organize it all in a digital way.
 
-A Customer can own one or more Vehicles.
-They can report issues with their vehicles and view their own details.
+It's fully built in **C++**, using Object-Oriented Programming principles like:
 
-**-Vehicle Types**
+- Inheritance  
+- Composition  
+- A bit of design pattern magic (used Singleton for Admin)  
 
-Every vehicle includes details like the number of doors, engine capacity, model, type, and any reported faults.
-Supports different vehicle types:
-Truck, SUV, Sedan, SportsCar, HatchBack, and Bus.
-These types are all built from a base class called Vehicle, and each one can customize how fault information is shown.
+---
 
-**-Garage Management**
+## User Roles
 
-The Garage keeps track of:
-The total number of vehicles
-How many are currently being repaired
-How many are available
-The Admin can check the status of the garage, while the garage itself updates and displays this information.
+### Admin (There can only be ONE!)
 
-**-Fault Reporting**
+The Admin is kind of like the boss of the system. There’s only one Admin allowed (used the Singleton Pattern to enforce that).
 
-Each vehicle has a connected Fault object that stores details about any issues.
-These faults are part of the vehicle itself and can't exist without one.
-Faults can be viewed through a special function that shows problem descriptions.
+The Admin can:
 
-**-Repair Records**
+- Add new customers  
+- Register their vehicles  
+- Track what’s going on in the garage  
+- View repair histories of any vehicle  
 
-The Record class stores the repair history for each vehicle.
-Admin can add repair entries or browse through previous records.
+### Customer
 
-## How Everything Connects
+Each customer can:
 
-Admin ↔ Customer → Admin manages and adds customers.
+- Own one or more vehicles  
+- Report problems (faults) with their vehicle  
+- View their personal and vehicle details  
 
-Customer ↔ Vehicle → A customer owns one or more vehicles.
+---
 
-Vehicle → Fault → Every vehicle includes its own fault information (strong link).
+## Vehicles and Their Types
 
-Garage ↔ Vehicle → Garage holds and manages a group of vehicles (looser link).
+Vehicles are a huge part of this system. Each vehicle comes with:
 
-Admin ↔ Garage → Admin can view and interact with the garage.
+- Model name  
+- Number of doors  
+- Engine capacity  
+- Type (like Sedan or Truck)  
+- Fault info (if any)  
 
-Record ↔ Vehicle → Repair records are tied to specific vehicles.
+Different vehicle types (inherited from a base `Vehicle` class):
 
-Garage ↔ Record → Garage uses records to track repairs over time.
+- Truck  
+- SUV  
+- Sedan  
+- SportsCar  
+- HatchBack  
+- Bus  
 
-Person ← Customer, Admin → Admin and Customer share common personal info (name, CNIC, etc.) via inheritance.
+Each type can show faults a bit differently using polymorphism.
 
-Person → Address → Each person has an address (tight composition).
+---
 
-## Key Classes in the System
-**-People & Roles**
+## Garage Management
 
-Person: Basic info like name, CNIC, phone number, and address.
+The Garage keeps an eye on:
 
-Address: Tied to each person.
+- Total number of vehicles  
+- Vehicles currently under repair  
+- Available vehicles (not in repair)  
 
-Customer: Inherits from Person, can own vehicles.
+Admin can check out this info, and the Garage keeps itself updated with changes as they happen.
 
-Admin: Also inherits from Person; only one instance allowed.
+---
 
-**-Vehicles**
+## Fault Reporting
 
-Vehicle: The main vehicle class — includes model, engine, doors, faults, etc.
+Each vehicle can have faults reported (like "brake issue" or "engine overheating"). These faults are:
 
-Specialized vehicle types (inherit from Vehicle):
-Truck, 
-SUV, 
-Sedan, 
-SportsCar, 
-HatchBack, 
-Bus
+- Stored inside the vehicle object (tight relationship)  
+- Shown via a custom function (for clean output)  
+- Tightly bound to the vehicle (composition relationship — they can’t exist alone)  
 
-**-Garage & Repair Records**
+---
 
-Garage: Tracks vehicle count and repair status.
+## Repair Records
 
-Record: Keeps a log of repairs done on each vehicle.
+Each vehicle has a `Record` object storing all its past repair history.
 
-**-Faults**
+Admin can:
 
-Fault: Stores and shows problems found in vehicles. Fully integrated into the Vehicle class.
+- Add new repair entries  
+- View past fixes  
 
-## Design Patterns & Relationships
-**Singleton Pattern:** Only one Admin object can be created.
+Records are tied directly to vehicles, and the Garage can also access them to track repairs.
 
-**Inheritance:** Used to define relationships like Vehicle types or shared person details.
+---
 
-**Composition:** Strong relationships, like Vehicle owning a Fault or Person having an Address.
+## How Everything Connects (UML-style Relationships)
 
-**Aggregation/Association:** Looser connections — e.g., Admin interacting with Garage, or Garage managing Records.
+Here’s a rough idea of how stuff is connected:
 
+- `Admin → Customer` : Admin adds and manages customers  
+- `Customer → Vehicle` : Each customer can own multiple vehicles  
+- `Vehicle → Fault` : A vehicle has its own fault info (can’t be separate)  
+- `Garage ↔ Vehicle` : Garage manages and stores all the vehicles  
+- `Admin ↔ Garage` : Admin can access Garage info  
+- `Record → Vehicle` : Records are linked directly to vehicles  
+- `Garage ↔ Record` : Garage checks records to manage repairs  
+- `Person ← Customer, Admin` : Both roles inherit from a common `Person` class  
+- `Person → Address` : Each person has an address (tight composition)  
 
-![UML](https://github.com/user-attachments/assets/28d6aba1-b8d5-482d-8885-eb447a87d356)
+---
 
+## Key Classes (And What They Do)
 
+### Person & Roles
 
+- `Person` : Has basic info like name, CNIC, phone, and address  
+- `Address` : Composed inside Person — tightly bound  
+- `Customer` : Inherits from Person and owns vehicles  
+- `Admin` : Also inherits from Person, but only one instance allowed (Singleton)  
 
+### Vehicles
 
+- `Vehicle` : Base class with model, engine, doors, etc.  
+- Specialized types:
+  - Truck  
+  - SUV  
+  - Sedan  
+  - SportsCar  
+  - HatchBack  
+  - Bus  
 
+Each type can override fault display and other behavior.
+
+### Garage & Records
+
+- `Garage` : Tracks how many cars are in, under repair, or available  
+- `Record` : Keeps repair logs for every vehicle  
+
+### Faults
+
+- `Fault` : Stores vehicle problem descriptions (attached directly to `Vehicle`)  
+
+---
+
+## OOP Concepts & Patterns Used
+
+- **Singleton Pattern** → To ensure there’s only one Admin  
+- **Inheritance** → For roles (`Admin`, `Customer`) and vehicle types  
+- **Composition** → For things like `Vehicle-Fault` or `Person-Address`  
+- **Aggregation/Association** → For looser relationships like `Garage ↔ Record`  
+
+---
+
+## Final Thoughts
+
+This was a fun but challenging project! I learned a lot about managing object relationships, using design patterns properly, and modeling real-world systems in code.
+
+If you're into C++ and want to build something beyond just console apps — this could be a great base to start from.
+
+Feel free to explore the code, fork it, or suggest improvements. If you want to turn this into a full-fledged web or GUI-based system, go for it.
