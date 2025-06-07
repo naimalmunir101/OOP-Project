@@ -3,7 +3,7 @@
 # Auto Workshop Management System
 This system helps manage everything that goes on inside an auto repair workshop. From handling customers and their vehicles to keeping track of repairs and garage activity — it covers it all. It's built using C++, serving as the backend for a smart automobile maintenance platform.
 
-# What It Does?
+## What It Does?
 **-User Roles**
 
 Admin is the main controller of the system.
@@ -41,7 +41,7 @@ Faults can be viewed through a special function that shows problem descriptions.
 The Record class stores the repair history for each vehicle.
 Admin can add repair entries or browse through previous records.
 
-# How Everything Connects
+## How Everything Connects
 
 Admin ↔ Customer → Admin manages and adds customers.
 
@@ -61,7 +61,7 @@ Person ← Customer, Admin → Admin and Customer share common personal info (na
 
 Person → Address → Each person has an address (tight composition).
 
-# Key Classes in the System
+## Key Classes in the System
 **People & Roles**
 
 Person: Basic info like name, CNIC, phone number, and address.
@@ -90,7 +90,7 @@ Record: Keeps a log of repairs done on each vehicle.
 
 Fault: Stores and shows problems found in vehicles. Fully integrated into the Vehicle class.
 
-# Design Patterns & Relationships
+## Design Patterns & Relationships
 **Singleton Pattern:** Only one Admin object can be created.
 
 **Inheritance:** Used to define relationships like Vehicle types or shared person details.
@@ -103,7 +103,7 @@ Fault: Stores and shows problems found in vehicles. Fully integrated into the Ve
 ![UML](https://github.com/user-attachments/assets/28d6aba1-b8d5-482d-8885-eb447a87d356)
 
 
-![Auto Workshop Management System Process Flowchart](https://github.com/user-attachments/assets/2699b442-c835-4987-892a-66620965d13a)
+
 
 
 
