@@ -84,6 +84,7 @@ Bus
 **Garage & Repair Records**
 
 Garage: Tracks vehicle count and repair status.
+
 Record: Keeps a log of repairs done on each vehicle.
 
 **Faults**
