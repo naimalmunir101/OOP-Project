@@ -4,7 +4,7 @@
 This system helps manage everything that goes on inside an auto repair workshop. From handling customers and their vehicles to keeping track of repairs and garage activity — it covers it all. It's built using C++, serving as the backend for a smart automobile maintenance platform.
 
 # What It Does?
--User Roles
+## **-User Roles**
 Admin is the main controller of the system.
 Can add new customers, register their vehicles, track garage status, and view repair records.
 Uses a Singleton pattern — meaning only one Admin can exist in the system at any time.
