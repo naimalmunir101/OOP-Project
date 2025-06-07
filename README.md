@@ -92,7 +92,7 @@ Aggregation/Association: Looser connections — e.g., Admin interacting with Gar
 ![UML](https://github.com/user-attachments/assets/28d6aba1-b8d5-482d-8885-eb447a87d356)
 
 
-![OOP](https://github.com/user-attachments/assets/8a7d3879-3fe6-45db-9315-7f4693c3ec69)
+![Auto Workshop Management System Process Flowchart](https://github.com/user-attachments/assets/2699b442-c835-4987-892a-66620965d13a)
 
 
 
