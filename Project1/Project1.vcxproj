@@ -128,15 +128,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Address.cpp" />
+    <ClCompile Include="Bus.cpp" />
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="CustomerLinkVehicle.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="HatchBack.cpp" />
+    <ClCompile Include="LogIn.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Sedan.cpp" />
+    <ClCompile Include="SportsCar.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Address.h" />
+    <ClInclude Include="Bus.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="CustomerLinkVehicle.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="HatchBack.h" />
+    <ClInclude Include="LogIn.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Sedan.h" />
+    <ClInclude Include="SportsCar.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
